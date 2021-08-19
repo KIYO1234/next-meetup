@@ -54,7 +54,8 @@ export const getStaticPaths = async () => {
     paths: meetup.map((meetup) => ({
       params: { meetupId: meetup._id.toString() },
     })),
-    fallback: false,
+    // false にすると、違うパスの時に404pageを返す
+    fallback: 'blocking',
   };
 };
 
